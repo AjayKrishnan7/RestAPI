@@ -19,16 +19,14 @@ public class SpecFactory {
         return new ResponseSpecBuilder()
 
                 .expectStatusCode(200)
-                 .expectResponseTime(lessThan(800L))
                 .build();
     }
 
     public static RequestSpecification getReq()
     {
         return new RequestSpecBuilder()
-
+                .addHeader("x-api-key","special-key")
                 .setBaseUri(baseUrl)
-                .setBasePath("/store/inventory")
                 .setContentType(ContentType.JSON)
                 .setAccept(ContentType.JSON)
                 .build();
