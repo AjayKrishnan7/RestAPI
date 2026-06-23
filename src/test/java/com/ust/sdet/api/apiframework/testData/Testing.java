@@ -41,8 +41,9 @@ public class Testing {
 
         given()
                 .spec(getReq())
+                .pathParam("petId", 658720)
                 .when()
-                .get("/store/inventory/")
+                .get("pet/{petId}")
                 .then()
                 .log().all()
                 .spec(getRes());
@@ -65,6 +66,17 @@ public class Testing {
             .then()
                 .log().all()
                 .spec(deleteRes());
+    }
+    @Test
+    void getFunction(){
+        given()
+                .spec(getReq())
+                .log().all()
+                .when()
+                .get("/store/inventory")
+                .then()
+                .log().all()
+                .spec(getRes());
     }
 }
 
